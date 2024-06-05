@@ -8,19 +8,19 @@ import java.sql.SQLException;
 //@XmlRootElement
 public class Jobs {
     private int jobID;
-    private String jobnTitle;
+    private String jobTitle;
     private int minSalary;
     private double mxnSalary;
 
     public Jobs(ResultSet rs) throws SQLException {
         jobID = rs.getInt("job_Id");
-        jobnTitle = rs.getString("job_title");
+        jobTitle = rs.getString("job_title");
         minSalary = rs.getInt("min_Salary");
     }
 
-    public Jobs(int jobID, String jobnTitle, int minSalary) {
+    public Jobs(int jobID, String jobTitle, int minSalary) {
         this.jobID = jobID;
-        this.jobnTitle = jobnTitle;
+        this.jobTitle = jobTitle;
         this.minSalary = minSalary;
     }
 
@@ -32,12 +32,12 @@ public class Jobs {
         this.jobID = jobID;
     }
 
-    public String getJobnTitle() {
-        return jobnTitle;
+    public String getJobTitle() {
+        return jobTitle;
     }
 
-    public void setJobnTitle(String jobnTitle) {
-        this.jobnTitle = jobnTitle;
+    public void setJobTitle(String jobTitle) {
+        this.jobTitle = jobTitle;
     }
 
     public double getMxnSalary() {
@@ -56,7 +56,7 @@ public class Jobs {
     public String toString() {
         return "Jobs{" +
                 "jobID=" + jobID +
-                ", jobnTitle='" + jobnTitle + '\'' +
+                ", jobnTitle='" + jobTitle + '\'' +
                 ", minSalary=" + minSalary +
                 '}';
     }

@@ -25,7 +25,7 @@ public class JobDAO {
         Connection conn = DriverManager.getConnection(URL);
         PreparedStatement st = conn.prepareStatement(INSERT_JOBS);
         st.setInt(1, d.getJobID());
-        st.setString(2, d.getJobnTitle());
+        st.setString(2, d.getJobTitle());
         st.setDouble(3, d.getMinSalary());
         st.setDouble(4, d.getMxnSalary());
         st.executeUpdate();
@@ -36,7 +36,7 @@ public class JobDAO {
         Connection conn = DriverManager.getConnection(URL);
         PreparedStatement st = conn.prepareStatement(UPDATE_JOBS);
         st.setInt(1, d.getJobID());
-        st.setString(2, d.getJobnTitle());
+        st.setString(2, d.getJobTitle());
         st.setDouble(3, d.getMinSalary());
         st.setDouble(4, d.getMinSalary());
         st.executeUpdate();

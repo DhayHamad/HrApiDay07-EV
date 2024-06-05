@@ -6,9 +6,8 @@ import java.util.ArrayList;
 
 public class JobsDto {
     private int jobID;
-    private String jobnTitle;
+    private String jobTitle;
     private double minSalary;
-    private double mxnSalary;
 
     private ArrayList<LinkDto> links = new ArrayList<>();
 
@@ -17,13 +16,13 @@ public class JobsDto {
 
     public JobsDto(ResultSet rs) throws SQLException {
         jobID = rs.getInt("job_Id");
-        jobnTitle = rs.getString("job_title");
+        jobTitle = rs.getString("job_title");
         minSalary = rs.getInt("min_Salary");
     }
 
-    public JobsDto(int jobID, String jobnTitle, int minSalary) {
+    public JobsDto(int jobID, String jobTitle, double minSalary) {
         this.jobID = jobID;
-        this.jobnTitle = jobnTitle;
+        this.jobTitle = jobTitle;
         this.minSalary = minSalary;
     }
 
@@ -35,16 +34,12 @@ public class JobsDto {
         this.jobID = jobID;
     }
 
-    public String getJobnTitle() {
-        return jobnTitle;
+    public String getJobTitle() {
+        return jobTitle;
     }
 
-    public void setJobnTitle(String jobnTitle) {
-        this.jobnTitle = jobnTitle;
-    }
-
-    public double getMxnSalary(double mxnSalary) {
-        return this.mxnSalary;
+    public void setJobTitle(String jobTitle) {
+        this.jobTitle = jobTitle;
     }
 
     public double getMinSalary() {
@@ -69,7 +64,7 @@ public class JobsDto {
     public String toString() {
         return "Jobs{" +
                 "jobID=" + jobID +
-                ", jobnTitle='" + jobnTitle + '\'' +
+                ", jobTitle='" + jobTitle + '\'' +
                 ", minSalary=" + minSalary +
                 '}';
     }

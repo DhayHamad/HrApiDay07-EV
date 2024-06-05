@@ -57,7 +57,7 @@ public class JobsController {
 
     @GET
     @Path("{jobId}")
-    public Response getJOB(@PathParam("jobId") int jobId) throws SQLException {
+    public Response  getJOB(@PathParam("jobId") int jobId) throws SQLException {
 
         /*try {
             return dao.selectJobs(jobId);
@@ -65,17 +65,16 @@ public class JobsController {
             throw new RuntimeException(e);
         }*/
         try {
-            Jobs dept = dao.selectJobs(jobId);
+            Jobs jobs = dao.selectJobs(jobId);
 
-            if (dept == null) {
+            if (jobs == null) {
                 throw new DataNotFoundException("Job " + jobId + "Not found");
             }
 
             JobsDto dto = new JobsDto();
-            dto.setJobID(dept.getJobID());
-            dto.setJobnTitle(dept.getJobnTitle());
-            dto.setMinSalary(dept.getMinSalary());
-            dto.getMxnSalary(dept.getMxnSalary());
+            dto.setJobID(jobs.getJobID());
+            dto.setJobTitle(jobs.getJobTitle());
+            dto.setMinSalary(jobs.getMinSalary());
 
             return Response.ok(dto).build();
         }
@@ -134,5 +133,4 @@ public class JobsController {
             throw new RuntimeException(e);
         }
     }
-
 }
