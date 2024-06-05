@@ -1,65 +1,75 @@
 package org.example.models;
 
+import jakarta.xml.bind.annotation.XmlElement;
 import jakarta.xml.bind.annotation.XmlRootElement;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-//@XmlRootElement
-public class Jobs {
-    private int jobID;
-    private String jobTitle;
-    private int minSalary;
-    private double mxnSalary;
+@XmlRootElement
+public class Jobs
+{
+    private int job_id;
+    private String job_title;
+    private int min_salary;
+    private int max_salary;
 
-    public Jobs(ResultSet rs) throws SQLException {
-        jobID = rs.getInt("job_Id");
-        jobTitle = rs.getString("job_title");
-        minSalary = rs.getInt("min_Salary");
+    public Jobs(ResultSet resultSet) throws SQLException
+    {
+        job_id = resultSet.getInt("job_id");
+        job_title = resultSet.getString("job_title");
+        min_salary = resultSet.getInt("min_salary");
+        max_salary = resultSet.getInt("max_salary");
     }
 
-    public Jobs(int jobID, String jobTitle, int minSalary) {
-        this.jobID = jobID;
-        this.jobTitle = jobTitle;
-        this.minSalary = minSalary;
+    public Jobs(int job_id, String job_title, int min_salary, int max_salary) {
+        this.job_id = job_id;
+        this.job_title = job_title;
+        this.min_salary = min_salary;
+        this.max_salary = max_salary;
     }
 
-    public int getJobID() {
-        return jobID;
+
+    public void setJob_id(int job_id) {
+        this.job_id = job_id;
     }
 
-    public void setJobID(int jobID) {
-        this.jobID = jobID;
+    public void setJob_title(String job_title) {
+        this.job_title = job_title;
     }
 
-    public String getJobTitle() {
-        return jobTitle;
+    public void setMin_salary(int min_salary) {
+        this.min_salary = min_salary;
     }
 
-    public void setJobTitle(String jobTitle) {
-        this.jobTitle = jobTitle;
+    @XmlElement
+    public int getJob_id() {
+        return job_id;
     }
 
-    public double getMxnSalary() {
-        return mxnSalary;
+    @XmlElement
+    public String getJob_title() {
+        return job_title;
     }
 
-    public double getMinSalary() {
-        return minSalary;
+    @XmlElement
+    public int getMin_salary() {
+        return min_salary;
     }
 
-    public void setMinSalary(int minSalary) {
-        this.minSalary = minSalary;
+    @XmlElement
+    public int getMax_salary() {
+        return max_salary;
+    }
+
+    public void setMax_salary(int max_salary) {
+        this.max_salary = max_salary;
     }
 
     @Override
-    public String toString() {
-        return "Jobs{" +
-                "jobID=" + jobID +
-                ", jobnTitle='" + jobTitle + '\'' +
-                ", minSalary=" + minSalary +
-                '}';
+    public String toString()
+    {
+        return "Job ID: "+job_id+", Title: "+job_title+", min_Salary: "+min_salary+", max_salary: "+max_salary;
     }
 
 }
-
