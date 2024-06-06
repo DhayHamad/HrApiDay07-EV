@@ -6,8 +6,7 @@ import org.example.models.Employee;
 import java.util.ArrayList;
 
 @Path("/employees")
-public class EmployeeController
-{
+public class EmployeeController {
     EmployeeDAO employeeDAO = new EmployeeDAO();
 
     @GET
